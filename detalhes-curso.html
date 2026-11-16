@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Formação | IMPULSO COMERCIAL</title>
+    <link rel="stylesheet" href="../css/style.css"><style>
+    .course-details {
+        background: #f6f7fa;
+        padding: 60px 6%;
+    }
+
+    .details-container {
+        max-width: 1050px;
+        margin: auto;
+    }
+
+    .details-hero {
+        background: #101f38;
+        color: white;
+        padding: 45px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+
+    .details-hero span {
+        color: #c6a15b;
+        font-weight: bold;
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .details-hero h1 {
+        font-size: 35px;
+        margin: 15px 0;
+    }
+
+    .details-hero p {
+        line-height: 1.8;
+        max-width: 700px;
+        color: #e0e5ed;
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 25px;
+    }
+
+    .details-card, .price-card {
+        background: white;
+        padding: 28px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .details-card h2 {
+        color: #101f38;
+        margin-bottom: 18px;
+    }
+
+    .details-card p, .details-card li {
+        color: #667085;
+        line-height: 1.8;
+    }
+
+    .details-card ul {
+        padding-left: 22px;
+    }
+
+    .price-card h3 {
+        color: #101f38;
+        margin-bottom: 12px;
+    }
+
+    .price {
+        font-size: 32px;
+        font-weight: bold;
+        color: #c6a15b;
+        margin: 15px 0;
+    }
+
+    .price-card p {
+        color: #667085;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .enrol-button {
+        display: block;
+        background: #101f38;
+        color: white;
+        padding: 14px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 7px;
+        font-weight: bold;
+    }
+
+    .enrol-button:hover {
+        background: #c6a15b;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-bottom: 25px;
+        color: #101f38;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    @media(max-width: 750px) {
+        .details-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .details-hero {
+            padding: 28px;
+        }
+
+        .details-hero h1 {
+            font-size: 27px;
+        }
+    }
+</style>
+
+</head><body><header class="header">
+    <div class="container">
+        <a href="../index.html" class="logo">IMPULSO <span>COMERCIAL</span></a>
+        <nav>
+            <a href="aluno.html">Minha área</a>
+            <a href="cursos.html">Formações</a>
+        </nav>
+    </div>
+</header><main class="course-details"><div class="details-container">
+
+    <a href="cursos.html" class="back-link">← Voltar às formações</a>
+
+    <section class="details-hero">
+        <span>FORMAÇÃO PROFISSIONAL</span>
+        <h1 id="course-title">A carregar formação...</h1>
+        <p id="course-description"></p>
+    </section>
+
+    <div class="details-grid">
+
+        <section class="details-card">
+            <h2>O que vais aprender</h2>
+            <ul id="course-content"></ul>
+
+            <br>
+
+            <h2>Benefícios da formação</h2>
+            <ul id="course-benefits"></ul>
+        </section>
+
+        <aside class="price-card">
+            <h3>Inscrição na formação</h3>
+
+            <p>Investe no teu conhecimento e desenvolve novas competências.</p>
+
+            <div class="price" id="course-price"></div>
+
+            <p id="access-message">
+                Acesso à formação após confirmação do pagamento.
+            </p>
+
+            <a href="checkout.html" class="enrol-button" id="enrol-button">
+                Inscrever-me
+            </a>
+        </aside>
+
+    </div>
+
+</div>
+
+</main><footer class="footer">
+    <p>© 2026 IMPULSO COMERCIAL. Todos os direitos reservados.</p>
+    <p><a href="https://wa.me/258878646362">Apoio pelo WhatsApp</a></p>
+</footer><!-- Carregar os módulos primeiro --><script src="../js/main.js"></script><script src="../js/courses.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../js/supabase.js"></script><script src="../js/auth.js"></script><!-- Carregar os detalhes da formação --><script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const selectedCourse = params.get("curso");
+    const course = obterCurso(selectedCourse);
+
+    const button = document.getElementById("enrol-button");
+    const message = document.getElementById("access-message");
+
+    if (!course) {
+        document.getElementById("course-title").textContent =
+            "Formação não encontrada";
+
+        document.getElementById("course-description").textContent =
+            "Não foi possível identificar esta formação. Volta à página de cursos.";
+
+        document.getElementById("course-price").textContent = "";
+        document.getElementById("course-content").innerHTML = "";
+        document.getElementById("course-benefits").innerHTML = "";
+        button.style.display = "none";
+        return;
+    }
+
+    document.getElementById("course-title").textContent = course.name;
+
+    document.getElementById("course-description").textContent =
+        course.description;
+
+    document.getElementById("course-price").textContent =
+        formatarPreco(course.price);
+
+    document.getElementById("course-content").innerHTML =
+        course.modules.map(item => `<li>${item}</li>`).join("");
+
+    document.getElementById("course-benefits").innerHTML =
+        course.benefits.map(item => `<li>${item}</li>`).join("");
+
+    button.href =
+        "checkout.html?curso=" + encodeURIComponent(selectedCourse);
+
+    const supabase = getSupabase();
+
+    if (!supabase) return;
+
+    const { data: userData } = await supabase.auth.getUser();
+
+    if (!userData.user) return;
+
+    const { data: inscricao, error } = await supabase
+        .from("enrollments")
+        .select("id")
+        .eq("user_id", userData.user.id)
+        .eq("curso_id", selectedCourse)
+        .maybeSingle();
+
+    if (!error && inscricao) {
+        message.textContent = "Já tens acesso a esta formação.";
+        button.textContent = "Aceder à formação";
+        button.href =
+            "aulas.html?curso=" + encodeURIComponent(selectedCourse);
+    }
+
+});
+</script></body>
+</html>

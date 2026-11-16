@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar Sessão | IMPULSO COMERCIAL</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            background: #f5f6f8;
+            min-height: 100vh;
+        }
+
+        .login-wrapper {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .login-card {
+            background: white;
+            width: 100%;
+            max-width: 460px;
+            padding: 42px;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(16,31,56,0.09);
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-heading span {
+            color: #c6a15b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .login-heading h1 {
+            color: #101f38;
+            font-size: 30px;
+            margin: 12px 0;
+        }
+
+        .login-heading p {
+            color: #697789;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #263449;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce1e9;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #c6a15b;
+            box-shadow: 0 0 0 3px rgba(198,161,91,0.12);
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-size: 12px;
+        }
+
+        .remember-option {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #697789;
+        }
+
+        .login-options a {
+            color: #b18b49;
+            font-weight: 700;
+        }
+
+        .login-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .login-register {
+            text-align: center;
+            margin-top: 25px;
+            color: #697789;
+            font-size: 13px;
+        }
+
+        .login-register a {
+            color: #b18b49;
+            font-weight: 800;
+        }
+
+        .login-back {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 13px;
+        }
+
+        .login-back a {
+            color: #101f38;
+            font-weight: 700;
+        }
+
+        @media(max-width: 500px) {
+            .login-card {
+                padding: 30px 22px;
+            }
+
+            .login-heading h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header-content">
+
+        <a href="../index.html" class="logo">
+            IMPULSO<span> COMERCIAL</span>
+        </a>
+
+        <a href="registo.html" class="header-button">
+            Criar conta
+        </a>
+
+    </div>
+</header>
+
+
+<main class="login-wrapper">
+
+    <section class="login-card">
+
+        <div class="login-heading">
+
+            <span>BEM-VINDO DE VOLTA</span>
+
+            <h1>Iniciar sessão</h1>
+
+            <p>
+                Entra na tua conta e continua
+                a tua jornada de aprendizagem.
+            </p>
+
+        </div>
+
+
+        < id="loginForm">
+
+            <div class="form-group">
+
+                <label for="email">Endereço de e-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemplo@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">Palavra-passe</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Introduz a tua palavra-passe"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <div class="login-options">
+
+                <label class="remember-option">
+                    <input type="checkbox" name="remember">
+                    Manter sessão iniciada
+                </label>
+
+                <a href="#">Esqueci-me da palavra-passe</a>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="button-primary login-submit"
+            >
+                Entrar na minha conta
+            </button>
+
+        <form id="form-login">
+
+
+        <div class="login-register">
+            Ainda não tens conta?
+            <a href="registo.html">Criar uma conta</a>
+        </div>
+
+
+        <div class="login-back">
+            <a href="../index.html">← Voltar à página inicial</a>
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 IMPULSO COMERCIAL.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+  <script src="../js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+
+</body>
+</html>

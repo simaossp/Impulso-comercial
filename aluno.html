@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área do Aluno | IMPULSO COMERCIAL</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            background: #f5f6f8;
+        }
+
+        .student-header {
+            background: #101f38;
+            padding: 20px 0;
+        }
+
+        .student-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .student-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .student-header-actions a {
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .student-main {
+            padding: 55px 0 80px;
+        }
+
+        .welcome-section {
+            background: linear-gradient(120deg, #101f38, #263f65);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+        }
+
+        .welcome-section span {
+            color: #c6a15b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .welcome-section h1 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .welcome-section p {
+            color: #d0d9e5;
+            font-size: 14px;
+        }
+
+        .dashboard-title {
+            margin-bottom: 25px;
+        }
+
+        .dashboard-title h2 {
+            color: #101f38;
+            font-size: 25px;
+        }
+
+        .dashboard-title p {
+            color: #697789;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 45px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 9px;
+            border: 1px solid #e7eaf0;
+        }
+
+        .stat-card span {
+            color: #697789;
+            font-size: 12px;
+        }
+
+        .stat-card h3 {
+            color: #101f38;
+            font-size: 29px;
+            margin-top: 8px;
+        }
+
+        .student-courses {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .student-course-card {
+            background: white;
+            border-radius: 10px;
+            padding: 27px;
+            border: 1px solid #e7eaf0;
+        }
+
+        .student-course-card .course-icon {
+            width: 48px;
+            height: 48px;
+            background: #f5f0e6;
+            color: #b18b49;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .student-course-card h3 {
+            color: #101f38;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .student-course-card p {
+            color: #697789;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .course-status {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: #f0f1f3;
+            color: #697789;
+            font-size: 10px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .student-course-card a {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            background: #101f38;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .student-course-card a:hover {
+            background: #c6a15b;
+            color: #101f38;
+        }
+
+        .support-box {
+            background: white;
+            border: 1px solid #e7eaf0;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .support-box h3 {
+            color: #101f38;
+            margin-bottom: 5px;
+        }
+
+        .support-box p {
+            color: #697789;
+            font-size: 13px;
+        }
+
+        .support-button {
+            background: #168b50;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .student-footer {
+            background: #0b172a;
+            color: #aeb9c9;
+            text-align: center;
+            padding: 22px;
+            font-size: 12px;
+        }
+
+        @media(max-width: 800px) {
+            .student-courses {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 550px) {
+            .student-header-content {
+                flex-wrap: wrap;
+            }
+
+            .student-header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .welcome-section {
+                padding: 28px 22px;
+            }
+
+            .welcome-section h1 {
+                font-size: 25px;
+            }
+
+            .stats-grid,
+            .student-courses {
+                grid-template-columns: 1fr;
+            }
+
+            .support-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="student-header">
+
+    <div class="container student-header-content">
+
+        <a href="../index.html" class="logo">
+            IMPULSO<span> COMERCIAL</span>
+        </a>
+
+        <div class="student-header-actions">
+
+            <a href="cursos.html">Explorar formações</a>
+
+            <a href="#" onclick="terminarSessao(); return false;">Terminar sessão</a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="student-main">
+
+    <div class="container">
+
+        <!-- BOAS-VINDAS -->
+
+        <section class="welcome-section">
+
+            <span>PAINEL DO ESTUDANTE</span>
+
+            <h1>Bem-vindo à tua área de aprendizagem!</h1>
+
+            <p>
+                Aqui podes acompanhar as tuas formações,
+                consultar os teus cursos e continuar
+                a desenvolver os teus conhecimentos.
+            </p>
+
+        </section>
+
+
+        <!-- RESUMO -->
+
+        <section>
+
+            <div class="dashboard-title">
+
+                <h2>Resumo da tua conta</h2>
+
+                <p>Acompanha a tua situação na academia.</p>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>Formações adquiridas</span>
+
+                    <h3 id="formacoes-adquiridas">0</h3>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Formações disponíveis</span>
+
+                    <h3 id="formacoes-disponiveis">3</h3>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Pagamentos pendentes</span>
+
+                    <h3 id="pagamentos-pendentes-aluno">0</h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FORMAÇÕES -->
+
+        <section>
+
+            <div class="dashboard-title">
+
+                <h2>As nossas formações</h2>
+
+                <p>
+                    Descobre as competências que podes
+                    desenvolver na nossa academia.
+                </p>
+
+            </div>
+
+
+            <div class="student-courses">
+
+
+                <article class="student-course-card">
+
+                    <div class="course-icon">📦</div>
+
+                    <span class="course-status" id="estado-importacao">
+                       AINDA NÃO ADQUIRIDO
+                    </span>
+
+                    <h3>Importação Profissional</h3>
+
+                    <p>
+                        Aprende a importar produtos,
+                        encontrar fornecedores e desenvolver
+                        o teu negócio.
+                    </p>
+
+                    <a href="detalhes-curso.html?curso=importacao">
+                        Ver formação
+                    </a>
+
+                </article>
+
+
+                <article class="student-course-card">
+
+                    <div class="course-icon">💳</div>
+
+                    <span class="course-status" id="estado-cartao">
+                       AINDA NÃO ADQUIRIDO
+                </span>
+
+                    <h3>Cartão Virtual</h3>
+
+                    <p>
+                        Aprende a criar e utilizar
+                        um cartão virtual para pagamentos
+                        internacionais.
+                    </p>
+
+                    <a href="detalhes-curso.html?curso=cartao">
+                        Ver formação
+                    </a>
+
+                </article>
+
+
+                <article class="student-course-card">
+
+                    <div class="course-icon">📈</div>
+
+                    <span class="course-status" id="estado-marketing">
+                      AINDA NÃO ADQUIRIDO
+                    </span>
+
+                    <h3>Marketing Digital</h3>
+
+                    <p>
+                        Aprende estratégias para promover
+                        produtos, conquistar clientes
+                        e desenvolver negócios online.
+                    </p>
+
+                    <a href="detalhes-curso.html?curso=marketing">
+                        Ver formação
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- APOIO -->
+
+        <section class="support-box">
+
+            <div>
+
+                <h3>Precisas de ajuda?</h3>
+
+                <p>
+                    A nossa equipa está disponível
+                    para esclarecer as tuas dúvidas.
+                </p>
+
+            </div>
+
+            <a
+                href="https://wa.me/258878646362"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="support-button"
+            >
+                Falar pelo WhatsApp
+            </a>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer class="student-footer">
+
+    © 2026 IMPULSO COMERCIAL.
+    Todos os direitos reservados.
+
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/courses.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/aluno.js"></script>
+
+</body>
+</html>

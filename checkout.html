@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição e Pagamento | IMPULSO COMERCIAL</title>
+    <link rel="stylesheet" href="../css/style.css"><style>
+    .checkout-page {
+        background: #f6f7fa;
+        padding: 55px 6%;
+        min-height: 80vh;
+    }
+
+    .checkout-container {
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .checkout-heading {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .checkout-heading h1 {
+        color: #101f38;
+        margin-bottom: 10px;
+    }
+
+    .checkout-heading p {
+        color: #667085;
+    }
+
+    .checkout-card {
+        background: white;
+        padding: 35px;
+        border-radius: 14px;
+        box-shadow: 0 5px 25px rgba(0,0,0,.05);
+    }
+
+    .order-summary {
+        background: #101f38;
+        color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .order-summary h2 {
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .order-summary p {
+        color: #e0e5ed;
+        margin-bottom: 10px;
+    }
+
+    .order-price {
+        color: #c6a15b;
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .checkout-card h3 {
+        color: #101f38;
+        margin: 25px 0 15px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        color: #344054;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid #d0d5dd;
+        border-radius: 7px;
+        font-size: 15px;
+        box-sizing: border-box;
+        background: white;
+    }
+
+    .payment-methods {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .payment-option {
+        border: 1px solid #d0d5dd;
+        padding: 18px;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+
+    .payment-option input {
+        margin-right: 8px;
+    }
+
+    .payment-option strong {
+        color: #101f38;
+    }
+
+    .payment-note {
+        background: #fff8e9;
+        padding: 16px;
+        border-radius: 8px;
+        color: #72551e;
+        line-height: 1.6;
+        margin: 22px 0;
+        font-size: 14px;
+    }
+
+    .submit-payment {
+        width: 100%;
+        border: none;
+        padding: 15px;
+        background: #101f38;
+        color: white;
+        border-radius: 7px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .submit-payment:hover {
+        background: #c6a15b;
+    }
+
+    .submit-payment:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+    .checkout-back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #101f38;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    @media(max-width: 600px) {
+        .checkout-card {
+            padding: 22px;
+        }
+
+        .payment-methods {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</head><body><header class="header">
+    <div class="container">
+        <a href="../index.html" class="logo">
+            IMPULSO <span>COMERCIAL</span>
+        </a>    <nav>
+        <a href="aluno.html">Minha área</a>
+        <a href="cursos.html">Formações</a>
+    </nav>
+</div>
+
+</header><main class="checkout-page"><div class="checkout-container">
+
+    <a href="cursos.html" class="checkout-back">
+        ← Voltar às formações
+    </a>
+
+    <div class="checkout-heading">
+        <h1>Finalizar inscrição</h1>
+        <p>Estás a um passo de iniciar a tua aprendizagem.</p>
+    </div>
+
+    <div class="checkout-card">
+
+        <div class="order-summary">
+            <h2>Resumo da inscrição</h2>
+            <p>Formação seleccionada:</p>
+            <p id="course-name">A carregar...</p>
+            <div class="order-price" id="course-price"></div>
+        </div>
+
+        <form id="payment-form">
+
+            <input type="hidden" id="curso-id" name="curso_id">
+
+            <h3>1. Os teus dados</h3>
+
+            <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome"
+                    placeholder="Introduz o teu nome completo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Número de telefone</label>
+                <input type="tel" id="telefone" name="telefone"
+                    placeholder="Ex.: 84 000 0000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Endereço de e-mail</label>
+                <input type="email" id="email" name="email"
+                    placeholder="O teu e-mail" required>
+            </div>
+
+            <h3>2. Método de pagamento</h3>
+
+            <div class="payment-methods">
+
+                <label class="payment-option">
+                    <input type="radio" id="mpesa"
+                        name="payment" value="M-Pesa" required>
+                    <strong>M-Pesa</strong>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" id="emola"
+                        name="payment" value="e-Mola">
+                    <strong>e-Mola</strong>
+                </label>
+
+            </div>
+
+            <h3>3. Confirmação do pagamento</h3>
+
+            <div class="form-group">
+                <label for="numero-pagamento">
+                    Número utilizado no pagamento
+                </label>
+                <input type="tel" id="numero-pagamento"
+                    name="numero_pagamento"
+                    placeholder="Número de origem do pagamento" required>
+            </div>
+
+            <div class="form-group">
+                <label for="referencia">
+                    Referência da transacção
+                </label>
+                <input type="text" id="referencia"
+                    name="referencia"
+                    placeholder="Introduz a referência da transacção"
+                    required>
+            </div>
+
+            <div class="payment-note">
+                <strong>Importante:</strong> A tua inscrição ficará pendente
+                até que o pagamento seja verificado e confirmado pela
+                administração da IMPULSO COMERCIAL. O acesso à formação
+                só será disponibilizado depois dessa confirmação.
+            </div>
+
+            <button type="submit" class="submit-payment">
+                Enviar dados para verificação
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</main><footer class="footer">
+    <p>© 2026 IMPULSO COMERCIAL. Todos os direitos reservados.</p>
+    <p>
+        <a href="https://wa.me/258878646362">
+            Apoio pelo WhatsApp
+        </a>
+    </p>
+</footer><script src="../js/main.js"></script><script src="../js/courses.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../js/supabase.js"></script><script src="../js/auth.js"></script><script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const selected = params.get("curso");
+    const course = obterCurso(selected);
+
+    const form = document.getElementById("payment-form");
+    const button = document.querySelector(".submit-payment");
+
+    if (!course) {
+        document.getElementById("course-name").textContent =
+            "Nenhuma formação seleccionada";
+
+        document.getElementById("course-price").textContent = "";
+        button.disabled = true;
+        return;
+    }
+
+    document.getElementById("curso-id").value = selected;
+
+    document.getElementById("course-name").textContent = course.name;
+
+    document.getElementById("course-price").textContent =
+        formatarPreco(course.price);
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        button.disabled = true;
+        button.textContent = "A enviar...";
+
+        try {
+
+            const supabase = getSupabase();
+
+            if (!supabase) {
+                throw new Error("Não foi possível ligar à base de dados.");
+            }
+
+            const { data: userData, error: userError } =
+                await supabase.auth.getUser();
+
+            if (userError || !userData.user) {
+                throw new Error("Precisas de iniciar sessão novamente.");
+            }
+
+            const metodo = document.querySelector(
+                'input[name="payment"]:checked'
+            );
+
+            if (!metodo) {
+                throw new Error("Selecciona M-Pesa ou e-Mola.");
+            }
+
+            const dadosPagamento = {
+                user_id: userData.user.id,
+                curso_id: selected,
+                valor: course.price,
+                metodo: metodo.value,
+                numero_pagamento: document.getElementById(
+                    "numero-pagamento"
+                ).value.trim(),
+                referencia: document.getElementById(
+                    "referencia"
+                ).value.trim(),
+                status: "pendente"
+            };
+
+            const { error } = await supabase
+                .from("payments")
+                .insert(dadosPagamento);
+
+            if (error) {
+                throw error;
+            }
+
+            alert(
+                "Os teus dados foram enviados com sucesso! " +
+                "O pagamento está pendente de verificação."
+            );
+
+            window.location.href = "aluno.html";
+
+        } catch (error) {
+
+            alert("Não foi possível enviar o pagamento: " + error.message);
+
+            button.disabled = false;
+            button.textContent = "Enviar dados para verificação";
+
+        }
+
+    });
+
+});
+</script></body>
+</html>

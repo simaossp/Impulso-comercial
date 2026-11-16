@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar Conta | IMPULSO COMERCIAL</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            background: #f5f6f8;
+            min-height: 100vh;
+        }
+
+        .register-wrapper {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 55px 20px;
+        }
+
+        .register-card {
+            background: white;
+            width: 100%;
+            max-width: 510px;
+            padding: 42px;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(16,31,56,0.09);
+        }
+
+        .register-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .register-heading span {
+            color: #c6a15b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .register-heading h1 {
+            color: #101f38;
+            font-size: 29px;
+            margin: 10px 0;
+        }
+
+        .register-heading p {
+            color: #697789;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #263449;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce1e9;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+        }
+
+        .form-group input:focus {
+            border-color: #c6a15b;
+            box-shadow: 0 0 0 3px rgba(198,161,91,0.12);
+        }
+
+        .register-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+
+        .register-login {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #697789;
+        }
+
+        .register-login a {
+            color: #b18b49;
+            font-weight: 800;
+        }
+
+        .register-back {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 13px;
+        }
+
+        .register-back a {
+            color: #101f38;
+            font-weight: 700;
+        }
+
+        @media(max-width: 500px) {
+            .register-card {
+                padding: 28px 20px;
+            }
+
+            .register-heading h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header-content">
+
+        <a href="../index.html" class="logo">
+            IMPULSO<span> COMERCIAL</span>
+        </a>
+
+        <a href="login.html" class="header-button">
+            Iniciar sessão
+        </a>
+
+    </div>
+</header>
+
+
+<main class="register-wrapper">
+
+    <section class="register-card">
+
+        <div class="register-heading">
+
+            <span>JUNTA-TE À NOSSA ACADEMIA</span>
+
+            <h1>Criar a tua conta</h1>
+
+            <p>
+                Dá o primeiro passo para desenvolver
+                os teus conhecimentos e competências.
+            </p>
+
+        </div>
+
+
+        < id="registerForm">
+
+            <div class="form-group">
+                <label for="nome">Nome completo</label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Introduz o teu nome completo"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="telefone">Número de telefone</label>
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="Ex.: 878646362"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Endereço de e-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemplo@email.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">Criar palavra-passe</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Mínimo de 8 caracteres"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="confirmPassword">
+                    Confirmar palavra-passe
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Introduz novamente a palavra-passe"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
+            </div>
+
+
+            <button
+                type="submit"
+                class="button-primary register-submit"
+            >
+                Criar a minha conta
+            </button>
+
+        <form id="form-registo">
+
+
+        <div class="register-login">
+            Já tens uma conta?
+            <a href="login.html">Iniciar sessão</a>
+        </div>
+
+
+        <div class="register-back">
+            <a href="../index.html">← Voltar à página inicial</a>
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <p>
+                © 2026 IMPULSO COMERCIAL.
+                Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+
+</body>
+</html>

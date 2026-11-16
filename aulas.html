@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Aprendizagem | IMPULSO COMERCIAL</title>
+    <link rel="stylesheet" href="../css/style.css"><style>
+    .learning-page {
+        background: #f5f6f9;
+        min-height: 85vh;
+        padding: 35px 5%;
+    }
+
+    .learning-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .learning-header {
+        margin-bottom: 30px;
+    }
+
+    .learning-header h1 {
+        color: #101f38;
+        margin-bottom: 10px;
+    }
+
+    .learning-header p {
+        color: #667085;
+    }
+
+    .learning-grid {
+        display: grid;
+        grid-template-columns: 1fr 330px;
+        gap: 25px;
+    }
+
+    .video-section, .lessons-section {
+        background: white;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.04);
+    }
+
+    .video-player {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #101f38;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .video-placeholder h2 {
+        color: #c6a15b;
+        margin-bottom: 12px;
+    }
+
+    .video-placeholder p {
+        color: #e0e5ed;
+        line-height: 1.6;
+    }
+
+    .lesson-description {
+        padding-top: 22px;
+    }
+
+    .lesson-description h2 {
+        color: #101f38;
+        margin-bottom: 12px;
+    }
+
+    .lesson-description p {
+        color: #667085;
+        line-height: 1.8;
+    }
+
+    .lessons-section h2 {
+        color: #101f38;
+        margin-bottom: 20px;
+    }
+
+    .module-title {
+        background: #f1f3f7;
+        padding: 13px;
+        border-radius: 7px;
+        color: #101f38;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .lesson-item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        background: white;
+        border: 1px solid #e4e7ec;
+        padding: 14px;
+        margin-bottom: 9px;
+        border-radius: 7px;
+        color: #344054;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .lesson-item.active {
+        background: #101f38;
+        color: white;
+        border-color: #101f38;
+    }
+
+    .lesson-item:hover {
+        border-color: #c6a15b;
+    }
+
+    .lesson-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .lesson-navigation button {
+        padding: 12px 18px;
+        border: none;
+        background: #101f38;
+        color: white;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .lesson-navigation button:disabled {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
+    .support-area {
+        margin-top: 25px;
+        padding: 20px;
+        background: #fff8e9;
+        border-radius: 9px;
+    }
+
+    .support-area p {
+        color: #72551e;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .support-area a {
+        display: inline-block;
+        background: #101f38;
+        color: white;
+        padding: 11px 17px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+    @media(max-width: 850px) {
+        .learning-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media(max-width: 500px) {
+        .learning-page {
+            padding: 25px 4%;
+        }
+
+        .video-section, .lessons-section {
+            padding: 16px;
+        }
+
+        .lesson-navigation button {
+            padding: 10px;
+            font-size: 12px;
+        }
+    }
+</style>
+
+</head><body><header class="header">
+    <div class="container">
+        <a href="../index.html" class="logo">
+            IMPULSO <span>COMERCIAL</span>
+        </a>    <nav>
+        <a href="aluno.html">Minha área</a>
+        <a href="cursos.html">Formações</a>
+    </nav>
+</div>
+
+</header><main class="learning-page"><div class="learning-container">
+
+    <div class="learning-header">
+        <h1 id="course-title">Sala de Aprendizagem</h1>
+        <p>Bem-vindo à tua formação. Aprende ao teu ritmo e acompanha cada módulo.</p>
+    </div>
+
+    <div class="learning-grid" id="learning-content" style="display:none;">
+
+        <section class="video-section">
+
+            <div class="video-player">
+                <div class="video-placeholder">
+                    <h2 id="video-title">A tua aula começa aqui</h2>
+                    <p id="video-message">
+                        O conteúdo em vídeo será disponibilizado nesta área.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lesson-description">
+                <h2 id="lesson-title">Introdução à formação</h2>
+                <p id="lesson-description">
+                    Selecciona uma aula na lista para consultar o respectivo conteúdo.
+                </p>
+            </div>
+
+            <div class="lesson-navigation">
+                <button id="previous-button" onclick="changeLesson(-1)">
+                    ← Aula anterior
+                </button>
+
+                <button id="next-button" onclick="changeLesson(1)">
+                    Próxima aula →
+                </button>
+            </div>
+
+        </section>
+
+        <aside class="lessons-section">
+
+            <h2>Conteúdo da formação</h2>
+
+            <div class="module-title">Módulo 1 — Introdução</div>
+
+            <div id="lessons-list"></div>
+
+            <div class="support-area">
+                <p>
+                    Tens dúvidas sobre alguma aula? Contacta a nossa equipa
+                    de apoio.
+                </p>
+
+                <a href="https://wa.me/258878646362" target="_blank">
+                    Falar pelo WhatsApp
+                </a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <div id="access-message" style="
+        display:none;
+        background:white;
+        padding:30px;
+        border-radius:12px;
+        text-align:center;
+        color:#667085;
+    ">
+        <h2 style="color:#101f38;">Acesso não disponível</h2>
+        <p id="access-description"></p>
+        <a href="aluno.html" style="
+            display:inline-block;
+            margin-top:15px;
+            background:#101f38;
+            color:white;
+            padding:12px 20px;
+            border-radius:7px;
+            text-decoration:none;
+        ">Voltar à minha área</a>
+    </div>
+
+</div>
+
+</main><footer class="footer">
+    <p>© 2026 IMPULSO COMERCIAL. Todos os direitos reservados.</p>
+</footer><!-- Carregar os sistemas da plataforma --><script src="../js/main.js"></script><script src="../js/courses.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../js/supabase.js"></script><script src="../js/auth.js"></script><script>
+
+const formations = {
+    importacao: {
+        title: "Importação Profissional",
+        lessons: [
+            {
+                title: "Aula 1 — Boas-vindas",
+                description: "Conhece a formação, os seus objectivos e como aproveitar melhor esta aprendizagem."
+            },
+            {
+                title: "Aula 2 — Introdução à importação",
+                description: "Compreende os fundamentos da importação e as oportunidades deste mercado."
+            },
+            {
+                title: "Aula 3 — Plataformas internacionais",
+                description: "Conhece as principais plataformas utilizadas para encontrar produtos e fornecedores."
+            },
+            {
+                title: "Aula 4 — Como avaliar fornecedores",
+                description: "Aprende a analisar vendedores e identificar sinais de confiança."
+            }
+        ]
+    },
+
+    cartao: {
+        title: "Cartão Virtual",
+        lessons: [
+            {
+                title: "Aula 1 — Boas-vindas",
+                description: "Conhece os objectivos da formação e o processo de aprendizagem."
+            },
+            {
+                title: "Aula 2 — Introdução aos cartões virtuais",
+                description: "Compreende o funcionamento dos cartões virtuais e a sua utilização."
+            },
+            {
+                title: "Aula 3 — Criação da conta",
+                description: "Conhece os passos necessários para criar e configurar uma conta."
+            },
+            {
+                title: "Aula 4 — Pagamentos internacionais",
+                description: "Aprende os procedimentos para realizar pagamentos em plataformas internacionais."
+            }
+        ]
+    },
+
+    marketing: {
+        title: "Marketing Digital",
+        lessons: [
+            {
+                title: "Aula 1 — Boas-vindas",
+                description: "Conhece a formação e os conhecimentos que vais desenvolver."
+            },
+            {
+                title: "Aula 2 — Fundamentos do marketing",
+                description: "Aprende os conceitos essenciais do marketing digital."
+            },
+            {
+                title: "Aula 3 — Redes sociais",
+                description: "Conhece estratégias para divulgar produtos e serviços nas redes sociais."
+            },
+            {
+                title: "Aula 4 — Atrair clientes",
+                description: "Descobre formas de alcançar potenciais clientes e melhorar as vendas."
+            }
+        ]
+    }
+};
+
+let formation = null;
+let currentLesson = 0;
+
+function showAccessError(message) {
+    document.getElementById("learning-content").style.display = "none";
+    document.getElementById("access-message").style.display = "block";
+    document.getElementById("access-description").textContent = message;
+}
+
+function renderLessons() {
+    const list = document.getElementById("lessons-list");
+
+    list.innerHTML = formation.lessons.map((lesson, index) => `
+        <button
+            class="lesson-item ${index === currentLesson ? "active" : ""}"
+            onclick="selectLesson(${index})">
+            ▶ ${lesson.title}
+        </button>
+    `).join("");
+}
+
+function selectLesson(index) {
+    if (!formation || index < 0 || index >= formation.lessons.length) {
+        return;
+    }
+
+    currentLesson = index;
+
+    const lesson = formation.lessons[index];
+
+    document.getElementById("video-title").textContent = lesson.title;
+    document.getElementById("lesson-title").textContent = lesson.title;
+    document.getElementById("lesson-description").textContent = lesson.description;
+
+    document.getElementById("previous-button").disabled = index === 0;
+
+    document.getElementById("next-button").disabled =
+        index === formation.lessons.length - 1;
+
+    renderLessons();
+}
+
+function changeLesson(direction) {
+    const next = currentLesson + direction;
+
+    if (next >= 0 && next < formation.lessons.length) {
+        selectLesson(next);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get("curso");
+
+    formation = formations[courseId];
+
+    if (!formation || !obterCurso(courseId)) {
+        document.getElementById("course-title").textContent =
+            "Formação não encontrada";
+
+        showAccessError("Não foi possível identificar esta formação.");
+        return;
+    }
+
+    const supabase = getSupabase();
+
+    if (!supabase) {
+        showAccessError("Não foi possível ligar à plataforma. Tenta novamente.");
+        return;
+    }
+
+    const { data: userData, error: userError } =
+        await supabase.auth.getUser();
+
+    if (userError || !userData.user) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    // Verificar se existe inscrição confirmada para esta formação
+    const { data: inscricao, error: inscricaoError } = await supabase
+        .from("enrollments")
+        .select("id")
+        .eq("user_id", userData.user.id)
+        .eq("curso_id", courseId)
+        .maybeSingle();
+
+    if (inscricaoError) {
+        console.error(inscricaoError);
+        showAccessError("Não foi possível verificar a tua inscrição. Tenta novamente.");
+        return;
+    }
+
+    if (!inscricao) {
+        document.getElementById("course-title").textContent =
+            formation.title;
+
+        showAccessError(
+            "Ainda não tens acesso a esta formação. Para acederes às aulas, precisas de ter uma inscrição confirmada."
+        );
+        return;
+    }
+
+    // Acesso autorizado
+    document.getElementById("course-title").textContent = formation.title;
+    document.getElementById("learning-content").style.display = "grid";
+
+    selectLesson(0);
+
+});
+
+</script></body>
+</html>

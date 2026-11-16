@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formações | IMPULSO COMERCIAL</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .courses-page {
+            padding: 70px 6%;
+            background: #f6f7fa;
+            min-height: 80vh;
+        }
+
+        .courses-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .courses-heading h1 {
+            color: #101f38;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .courses-heading p {
+            color: #667085;
+            line-height: 1.7;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .course-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-box img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .course-content h2 {
+            color: #101f38;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .course-content p {
+            color: #667085;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .course-content a {
+            margin-top: auto;
+            text-align: center;
+            text-decoration: none;
+            background: #101f38;
+            color: white;
+            padding: 13px;
+            border-radius: 7px;
+            font-weight: 600;
+        }
+
+        .course-content a:hover {
+            background: #c6a15b;
+        }
+
+        @media(max-width: 850px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-heading h1 {
+                font-size: 27px;
+            }
+
+            .courses-page {
+                padding: 45px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <a href="../index.html" class="logo">IMPULSO <span>COMERCIAL</span></a>
+
+        <nav>
+            <a href="aluno.html">Minha área</a>
+            <a href="cursos.html">Formações</a>
+            <a href="#" onclick="terminarSessao(); return false;">Sair</a>
+        </nav>
+    </div>
+</header>
+
+<main class="courses-page">
+
+    <div class="courses-heading">
+        <h1>As nossas formações</h1>
+        <p>
+            Desenvolva competências, aprenda novas estratégias e prepare-se
+            para criar oportunidades no mundo dos negócios.
+        </p>
+    </div>
+
+    <div class="courses-grid">
+
+        <div class="course-box">
+            <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=900&q=80" alt="Importação">
+            <div class="course-content">
+                <h2>Importação Profissional</h2>
+                <p>
+                    Aprenda a importar produtos, encontrar fornecedores,
+                    realizar pagamentos internacionais e preparar os seus
+                    produtos para venda.
+                </p>
+                <a href="detalhes-curso.html?curso=importacao">Explorar formação</a>
+            </div>
+        </div>
+
+        <div class="course-box">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Cartão virtual">
+            <div class="course-content">
+                <h2>Cartão Virtual</h2>
+                <p>
+                    Aprenda a criar e utilizar um cartão virtual para efectuar
+                    pagamentos em plataformas e serviços internacionais.
+                </p>
+                <a href="detalhes-curso.html?curso=cartao">Explorar formação</a>
+            </div>
+        </div>
+
+        <div class="course-box">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Marketing digital">
+            <div class="course-content">
+                <h2>Marketing Digital</h2>
+                <p>
+                    Desenvolva conhecimentos de marketing digital para
+                    promover produtos, atrair clientes e aumentar as vendas.
+                </p>
+                <a href="detalhes-curso.html?curso=marketing">Explorar formação</a>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 IMPULSO COMERCIAL. Todos os direitos reservados.</p>
+    <p>
+        <a href="https://wa.me/258878646362">Apoio pelo WhatsApp</a>
+    </p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/courses.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+<script src="../js/auth.js"></script>
+  
+</body>
+</html>
